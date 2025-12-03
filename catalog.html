@@ -3,17 +3,18 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SportZone</title>
+<title>Каталог - SportZone</title>
 <link rel="stylesheet" href="style.css">
 <script defer src="script.js"></script>
 </head>
 <body>
+
 <!-- ХЕДЕР -->
 <header class="header">
   <div class="logo">SportZone</div>
   <nav class="nav">
-    <a href="index.html" class="active">Головна</a>
-    <a href="catalog.html">Каталог</a>
+    <a href="index.html">Головна</a>
+    <a href="catalog.html" class="active">Каталог</a>
     <a href="sales.html">Акції</a>
     <a href="delivery.html">Доставка</a>
     <a href="contacts.html">Контакти</a>
@@ -24,19 +25,36 @@
   </div>
 </header>
 
-<!-- ГЕРО СЕКЦІЯ -->
-<section class="hero">
-  <div class="hero-text fade-in">
-    <h1>Ласкаво просимо у SportZone!</h1>
-    <p>Купуйте спортивне спорядження та аксесуари легко</p>
-    <a href="catalog.html" class="btn">Перейти до каталогу</a>
+<!-- ГЕРО-СЕКЦІЯ -->
+<section class="page-hero">
+  <div class="hero-inner fade-in">
+    <h1>Каталог товарів</h1>
+    <p>Знайдіть потрібне спорядження для вашого спорту</p>
   </div>
 </section>
 
-<!-- ПОПУЛЯРНІ ТОВАРИ -->
+<!-- ФІЛЬТРИ -->
+<section class="filters-section">
+  <input type="text" id="search-input" placeholder="Пошук товару...">
+  <select id="category-filter">
+    <option value="all">Всі категорії</option>
+    <option value="ball">М’ячі</option>
+    <option value="sneakers">Кросівки</option>
+    <option value="yoga">Йога</option>
+    <option value="jump">Скакалки</option>
+  </select>
+  <select id="price-filter">
+    <option value="all">Всі ціни</option>
+    <option value="0-300">0-300 грн</option>
+    <option value="301-600">301-600 грн</option>
+    <option value="601-1200">601-1200 грн</option>
+    <option value="1201+">1200+ грн</option>
+  </select>
+</section>
+
+<!-- ТОВАРИ -->
 <section class="products-section">
-  <h2>Популярні товари</h2>
-  <div class="products-grid">
+  <div class="products-grid" id="catalog-list">
     <div class="product-card" data-category="ball" data-price="2100">
       <img src="https://basketmania.com.ua/image/cache/catalog/Wilson-ball/WTB0533XB-3x3/Myach_basketbolniy_W_FIBA_3X3_GAME_BBALL_SZ6_SS19_zheltiy-siniy_6_Basketmania-Espander-WTB-0533XB-01-1000x1000.jpg" alt="Баскетбольний м’яч Wilson 3x3">
       <h3>Баскетбольний м’яч Wilson 3x3</h3>
@@ -44,7 +62,7 @@
       <button class="btn-add" onclick="addToCart('Баскетбольний м’яч Wilson 3x3', 2100)">У кошик</button>
     </div>
     <div class="product-card" data-category="sneakers" data-price="2400">
-      <img src="https://hadi.ua/image/cache/catalog/nike/dm/DM0823-004-1024x1024.jpg" alt="Кросівки">
+      <img src="https://hadi.ua/image/cache/catalog/nike/dm/DM0823-004-1024x1024.jpg" alt="Кросівки M NIKE MC TRAINER 2">
       <h3>Кросівки M NIKE MC TRAINER 2</h3>
       <p class="price">2400 грн</p>
       <button class="btn-add" onclick="addToCart('Кросівки M NIKE MC TRAINER 2', 2400)">У кошик</button>
@@ -61,11 +79,21 @@
       <p class="price">150 грн</p>
       <button class="btn-add" onclick="addToCart('Скакалка', 150)">У кошик</button>
     </div>
+    <!-- Додаткові товари -->
+    <div class="product-card" data-category="ball" data-price="2600">
+      <img src="https://footballmall.com.ua/image/cache/catalog/image/cache/catalog/products/odezhda/muzhska/20052024/IN9365-1000x1000.webp" alt="Футбольний м’яч">
+      <h3>Футбольний м’яч Adidas Euro24</h3>
+      <p class="price">2600 грн</p>
+      <button class="btn-add" onclick="addToCart('Футбольний м’яч Adidas Euro24', 2600)">У кошик</button>
+    </div>
+    <div class="product-card" data-category="sneakers" data-price="9600">
+      <img src="https://images.prom.ua/3619147166_w1280_h640_3619147166.jpg" alt="Бігова кросівка">
+      <h3>Оригінальні кросівки для баскетболу Nike LeBron 19</h3>
+      <p class="price">9600 грн</p>
+      <button class="btn-add" onclick="addToCart('Оригінальні кросівки для баскетболу Nike LeBron 19', 9600)">У кошик</button>
+    </div>
   </div>
 </section>
-
-<!-- Легка смужка перед футером -->
-<div class="body-divider"></div>
 
 <!-- ФУТЕР -->
 <footer class="footer">
@@ -91,7 +119,6 @@
     © 2025 SportZone. TM SportZone Corporation
   </div>
 </footer>
-
 
 <!-- МОДАЛЬНИЙ КОШИК -->
 <div class="modal" id="cart-modal">
