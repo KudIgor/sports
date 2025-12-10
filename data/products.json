@@ -1,0 +1,58 @@
+[
+  {
+    "id": 1,
+    "name": "Баскетбольний м'яч Wilson",
+    "price": 899,
+    "category": "ball",
+    "image": "https://basketmania.com.ua/image/cache/catalog/Wilson-ball/WTB0533XB-3x3/Myach_basketbolniy_W_FIBA_3X3_GAME_BBALL_SZ6_SS19_zheltiy-siniy_6_Basketmania-Espander-WTB-0533XB-01-1000x1000.jpg"
+  },
+  {
+    "id": 2,
+    "name": "Футбольний м'яч Adidas Pro",
+    "price": 1199,
+    "category": "ball",
+    "image": "https://hadi.ua/image/cache/catalog/nike/dm/DM0823-004-1024x1024.jpg"
+  },
+  {
+    "id": 3,
+    "name": "Кросівки Nike Air Zoom",
+    "price": 2499,
+    "category": "sneakers",
+    "image": "https://content1.rozetka.com.ua/goods/images/big/389769494.jpg"
+  },
+  {
+    "id": 4,
+    "name": "Кросівки Adidas RunPro",
+    "price": 2199,
+    "category": "sneakers",
+    "image": "https://content1.rozetka.com.ua/goods/images/big/389769494.jpg"
+  },
+  {
+    "id": 5,
+    "name": "Килимок для йоги Manduka",
+    "price": 799,
+    "category": "yoga",
+    "image": "https://cdn.shopify.com/s/files/1/0070/7032/2020/products/manduka-yoga-mat.jpg"
+  },
+  {
+    "id": 6,
+    "name": "Скакалка легка SpeedRope",
+    "price": 299,
+    "category": "jump",
+    "image": "https://cdn.shopify.com/s/files/1/0070/7032/2020/products/speedrope.jpg"
+  },
+  {
+    "id": 7,
+    "name": "Скакалка важка PowerJump",
+    "price": 499,
+    "category": "jump",
+    "image": "https://cdn.shopify.com/s/files/1/0070/7032/2020/products/powerjump.jpg"
+  },
+  {
+    "id": 8,
+    "name": "Килимок для йоги EcoSoft",
+    "price": 599,
+    "category": "yoga",
+    "image": "https://cdn.shopify.com/s/files/1/0070/7032/2020/products/eco-soft-yoga-mat.jpg"
+  }
+]
