@@ -6,6 +6,7 @@
 <title>Каталог - SportZone</title>
 <link rel="stylesheet" href="style.css">
 <script defer src="script.js"></script>
+<script src="catalog.js" defer></script>
 </head>
 <body>
 
@@ -142,6 +143,29 @@
     <button id="confirm-order" class="btn">Підтвердити замовлення</button>
   </div>
 </div>
+
+<section class="filters-section">
+  <input id="search-input" placeholder="Пошук товару...">
+
+  <select id="category-filter">
+    <option value="all">Всі категорії</option>
+    <option value="ball">М’ячі</option>
+    <option value="sneakers">Кросівки</option>
+    <option value="yoga">Йога</option>
+    <option value="jump">Скакалки</option>
+  </select>
+
+  <select id="price-filter">
+    <option value="all">Всі ціни</option>
+    <option value="0-300">0–300 грн</option>
+    <option value="301-600">301–600 грн</option>
+    <option value="601-1200">601–1200 грн</option>
+    <option value="1200+">1200+ грн</option>
+  </select>
+</section>
+
+<div id="product-list"></div>
+
 
 </body>
 </html>

@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "title": "Знижка -20% на кросівки",
+    "description": "Тільки цього тижня на всі бігові кросівки",
+    "discount": "-20%",
+    "image": "img/sale1.jpg"
+  },
+  {
+    "id": 2,
+    "title": "Йога для всіх",
+    "description": "Килимки для йоги зі знижкою",
+    "discount": "-15%",
+    "image": "img/sale2.jpg"
+  },
+  {
+    "id": 3,
+    "title": "Мʼячі зі знижкою",
+    "description": "Футбольні та баскетбольні мʼячі",
+    "discount": "-10%",
+    "image": "img/sale3.jpg"
+  }
+]
