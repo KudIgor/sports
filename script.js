@@ -3,62 +3,81 @@
 // ==========================
 let cart = [];
 
-// ==========================
-// КНОПКИ ДО КОШИКА
-// ==========================
-const cartBtn = document.getElementById('cart-btn');
-const cartModal = document.getElementById('cart-modal');
-const closeCart = document.getElementById('close-cart');
-const cartItemsContainer = document.getElementById('cart-items');
-const cartTotal = document.getElementById('cart-total');
-
-const checkoutBtn = document.getElementById('checkout-btn');
-const checkoutModal = document.getElementById('checkout-modal');
-const closeCheckout = document.getElementById('close-checkout');
-const confirmOrder = document.getElementById('confirm-order');
-
-function updateCartCount() {
-  const count = cart.reduce((acc, item) => acc + item.quantity, 0);
-  const cartCount = document.getElementById('cart-count');
-  if(cartCount) cartCount.innerText = count;
+// ======================
+// CART (CLEAN VERSION)
+// ======================
+function openCart() {
+  const el = document.getElementById("cartOverlay");
+  if (el) el.style.display = "flex";
 }
 
-function renderCart(containerId = 'cart-items', totalId = 'cart-total') {
-  const container = document.getElementById(containerId);
-  const totalContainer = document.getElementById(totalId);
-  if (!container || !totalContainer) return;
-
-  container.innerHTML = '';
-  cart.forEach((item, index) => {
-    const div = document.createElement('div');
-    div.classList.add('cart-item');
-    div.innerHTML = `
-      <p>${item.name} - ${item.price} грн x ${item.quantity}</p>
-      <button onclick="removeFromCart(${index})">Видалити</button>
-    `;
-    container.appendChild(div);
-  });
-  const total = cart.reduce((acc, item) => acc + item.price * item.quantity, 0);
-  totalContainer.innerText = total;
+function closeCart() {
+  const el = document.getElementById("cartOverlay");
+  if (el) el.style.display = "none";
 }
 
 function addToCart(name, price) {
-  const existing = cart.find(i => i.name === name);
-  if (existing) {
-    existing.quantity += 1;
-  } else {
-    cart.push({ name, price, quantity: 1 });
-  }
-  updateCartCount();
+  const item = cart.find(p => p.name === name);
+  if (item) item.quantity++;
+  else cart.push({ name, price, quantity: 1 });
+
   renderCart();
-  showToast(`${name} додано у кошик!`);
+  showToast(`${name} додано у кошик`);
 }
 
 function removeFromCart(index) {
   cart.splice(index, 1);
-  updateCartCount();
   renderCart();
 }
+
+function renderCart() {
+  const items = document.getElementById("cartItems");
+  const total = document.getElementById("cartTotal");
+  if (!items || !total) return;
+
+  items.innerHTML = "";
+  let sum = 0;
+
+  cart.forEach((item, i) => {
+    sum += item.price * item.quantity;
+    items.innerHTML += `
+      <div class="cart-item">
+        <span>${item.name} × ${item.quantity}</span>
+        <button onclick="removeFromCart(${i})">✖</button>
+      </div>
+    `;
+  });
+
+  total.innerText = sum;
+}
+
+// ======================
+// CHECKOUT
+// ======================
+function openCheckout() {
+  document.getElementById("checkoutModal").style.display = "flex";
+}
+
+function closeCheckout() {
+  document.getElementById("checkoutModal").style.display = "none";
+}
+
+function confirmOrder() {
+  const name = document.getElementById("order-name").value;
+  const phone = document.getElementById("order-phone").value;
+
+  if (!name || !phone) {
+    alert("Заповніть імʼя та телефон");
+    return;
+  }
+
+  alert("Замовлення оформлено!");
+  cart = [];
+  renderCart();
+  closeCheckout();
+  closeCart();
+}
+
 
 // ==========================
 // ВІДКРИТТЯ/ЗАКРИТТЯ МОДАЛЬНИХ ВІКОН
