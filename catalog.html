@@ -20,10 +20,7 @@
     <a href="delivery.html">Доставка</a>
     <a href="contacts.html">Контакти</a>
   </nav>
-  <div class="cart-icon" id="cart-btn">
-    <img src="https://i.pinimg.com/474x/a1/9b/e9/a19be91f8b17de33ff7dbe40f6a796ce.jpg" alt="Кошик">
-    <span id="cart-count">0</span>
-  </div>
+      <button  class="cart-btn" onclick="openCart()">🛒 Кошик</button>
 </header>
 
 <!-- ГЕРО-СЕКЦІЯ -->
@@ -57,38 +54,38 @@
 <section class="products-section">
   <div class="products-grid" id="catalog-list">
     <div class="product-card" data-category="ball" data-price="2100">
-      <img src="https://basketmania.com.ua/image/cache/catalog/Wilson-ball/WTB0533XB-3x3/Myach_basketbolniy_W_FIBA_3X3_GAME_BBALL_SZ6_SS19_zheltiy-siniy_6_Basketmania-Espander-WTB-0533XB-01-1000x1000.jpg" alt="Баскетбольний м’яч Wilson 3x3">
+      <img src="img/Myach_basketbolniy_W_FIBA_3X3_GAME_BBALL_SZ6_SS19_zheltiy-siniy_6_Basketmania-Espander-WTB-0533XB-01-1000x1000.jpg" alt="Баскетбольний м’яч Wilson 3x3">
       <h3>Баскетбольний м’яч Wilson 3x3</h3>
       <p class="price">2100 грн</p>
       <button class="btn-add" onclick="addToCart('Баскетбольний м’яч Wilson 3x3', 2100)">У кошик</button>
     </div>
     <div class="product-card" data-category="sneakers" data-price="2400">
-      <img src="https://hadi.ua/image/cache/catalog/nike/dm/DM0823-004-1024x1024.jpg" alt="Кросівки M NIKE MC TRAINER 2">
+      <img src="img/DM0823-004-1024x1024.jpg" alt="Кросівки M NIKE MC TRAINER 2">
       <h3>Кросівки M NIKE MC TRAINER 2</h3>
       <p class="price">2400 грн</p>
       <button class="btn-add" onclick="addToCart('Кросівки M NIKE MC TRAINER 2', 2400)">У кошик</button>
     </div>
     <div class="product-card" data-category="yoga" data-price="300">
-      <img src="https://content1.rozetka.com.ua/goods/images/big/389769494.jpg" alt="Коврик для йоги">
+      <img src="img/kovrik_dlya_yogi_i_fitnesa_4fizjo_nbr_p-5907739311542_violet~1630~1663.webp" alt="Коврик для йоги">
       <h3>Коврик для йоги</h3>
       <p class="price">300 грн</p>
       <button class="btn-add" onclick="addToCart('Коврик для йоги', 300)">У кошик</button>
     </div>
     <div class="product-card" data-category="jump" data-price="150">
-      <img src="https://cdn.27.ua/sc--media--prod/default/8b/ff/5e/8bff5e92-f680-4621-942c-abd47d90a0a0.jpg" alt="Скакалка">
+      <img src="img/8bff5e92-f680-4621-942c-abd47d90a0a0.webp" alt="Скакалка">
       <h3>Скакалка</h3>
       <p class="price">150 грн</p>
       <button class="btn-add" onclick="addToCart('Скакалка', 150)">У кошик</button>
     </div>
     <!-- Додаткові товари -->
     <div class="product-card" data-category="ball" data-price="2600">
-      <img src="https://footballmall.com.ua/image/cache/catalog/image/cache/catalog/products/odezhda/muzhska/20052024/IN9365-1000x1000.webp" alt="Футбольний м’яч">
+      <img src="img/IN9365-1000x1000.webp" alt="Футбольний м’яч">
       <h3>Футбольний м’яч Adidas Euro24</h3>
       <p class="price">2600 грн</p>
       <button class="btn-add" onclick="addToCart('Футбольний м’яч Adidas Euro24', 2600)">У кошик</button>
     </div>
     <div class="product-card" data-category="sneakers" data-price="9600">
-      <img src="https://images.prom.ua/3619147166_w1280_h640_3619147166.jpg" alt="Бігова кросівка">
+      <img src="img/3619147166_w1280_h640_3619147166.webp" alt="Бігова кросівка">
       <h3>Оригінальні кросівки для баскетболу Nike LeBron 19</h3>
       <p class="price">9600 грн</p>
       <button class="btn-add" onclick="addToCart('Оригінальні кросівки для баскетболу Nike LeBron 19', 9600)">У кошик</button>
@@ -120,29 +117,43 @@
     © 2025 SportZone. TM SportZone Corporation
   </div>
 </footer>
+<!-- Кошик -->
+<div class="cart-overlay" id="cartOverlay">
+  <div class="cart">
+    <div class="cart-header">
+      <h2>🛒 Кошик</h2>
+      <div class="cart-header-actions">
+        <button onclick="closeCart()">✖</button>
+      </div>
+    </div>
 
-<!-- МОДАЛЬНИЙ КОШИК -->
-<div class="modal" id="cart-modal">
-  <div class="cart-modal-content">
-    <span class="close" id="close-cart">&times;</span>
-    <h2>Кошик</h2>
-    <div id="cart-items"></div>
-    <p>Загальна сума: <span id="cart-total">0</span> грн</p>
-    <button id="checkout-btn" class="btn">Оформити замовлення</button>
+    <div id="cartItems" class="cart-items"></div>
+
+    <div class="cart-footer">
+      <p>Разом: <span id="cartTotal">0</span> грн</p>
+      <button class="order-btn" onclick="openCheckout()">Оформити</button>
+    </div>
   </div>
 </div>
 
-<!-- МОДАЛЬНЕ ОФОРМЛЕННЯ -->
-<div class="modal" id="checkout-modal">
-  <div class="cart-modal-content">
-    <span class="close" id="close-checkout">&times;</span>
-    <h2>Оформлення замовлення</h2>
-    <input type="text" placeholder="Ваше ім’я" id="order-name" required>
-    <input type="tel" placeholder="Телефон" id="order-phone" required>
-    <input type="email" placeholder="Email" id="order-email" required>
-    <button id="confirm-order" class="btn">Підтвердити замовлення</button>
+<!-- Оформлення -->
+<div class="cart-overlay" id="checkoutModal">
+  <div class="cart">
+    <div class="cart-header">
+      <h2>Оформлення</h2>
+      <div class="cart-header-actions">
+        <button onclick="closeCheckout()">✖</button>
+      </div>
+    </div>
+    <div class="checkout-form">
+      <input id="order-name" placeholder="Імʼя">
+      <input id="order-phone" placeholder="Телефон">
+      <input id="order-email" placeholder="Email">
+</div>
+    <button class="order-btn" onclick="confirmOrder()">Підтвердити</button>
   </div>
 </div>
+
 
 <section class="filters-section">
   <input id="search-input" placeholder="Пошук товару...">

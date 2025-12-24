@@ -43,7 +43,9 @@ function renderCart() {
     items.innerHTML += `
       <div class="cart-item">
         <span>${item.name} × ${item.quantity}</span>
-        <button onclick="removeFromCart(${i})">✖</button>
+        <div class="cart-item-actions">
+          <button onclick="removeFromCart(${i})">✖</button>
+        </div>
       </div>
     `;
   });

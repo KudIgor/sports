@@ -19,10 +19,7 @@
     <a href="delivery.html" class="active">Доставка</a>
     <a href="contacts.html">Контакти</a>
   </nav>
-  <div class="cart-icon" id="cart-btn">
-    <img src="https://i.pinimg.com/474x/a1/9b/e9/a19be91f8b17de33ff7dbe40f6a796ce.jpg" alt="Кошик">
-    <span id="cart-count">0</span>
-  </div>
+    <button  class="cart-btn" onclick="openCart()">🛒 Кошик</button>
 </header>
 
 <!-- ГЕРО-СЕКЦІЯ -->
@@ -32,6 +29,43 @@
     <p>Відповіді на поширені питання щодо доставки та способів оплати</p>
   </div>
 </section>
+
+<!-- Кошик -->
+<div class="cart-overlay" id="cartOverlay">
+  <div class="cart">
+    <div class="cart-header">
+      <h2>🛒 Кошик</h2>
+           <div class="cart-header-actions">
+        <button onclick="closeCart()">✖</button>
+      </div>
+    </div>
+
+    <div id="cartItems" class="cart-items"></div>
+
+    <div class="cart-footer">
+      <p>Разом: <span id="cartTotal">0</span> грн</p>
+      <button class="order-btn" onclick="openCheckout()">Оформити</button>
+    </div>
+  </div>
+</div>
+
+<!-- Оформлення -->
+<div class="cart-overlay" id="checkoutModal">
+  <div class="cart">
+    <div class="cart-header">
+      <h2>Оформлення</h2>
+            <div class="cart-header-actions">
+        <button onclick="closeCheckout()">✖</button>
+      </div>
+    </div>
+    <div class="checkout-form">
+      <input id="order-name" placeholder="Імʼя">
+      <input id="order-phone" placeholder="Телефон">
+      <input id="order-email" placeholder="Email">
+</div>
+    <button class="order-btn" onclick="confirmOrder()">Підтвердити</button>
+  </div>
+</div>
 
 <!-- FAQ -->
 <section class="faq-section">
